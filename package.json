@@ -10,20 +10,6 @@
     "type": "git",
     "url": "git+https://github.com/PodCoin/PodCoin.github.io.git"
   },
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-  "author": "Rafael Pedicini <code@rafrex.com>",
-  "license": "MIT",
-  "dependencies": {
-    "prop-types": "^15.6.0",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-interactive": "^0.8.1",
-    "react-router-dom": "^4.2.2"
-=======
-=======
->>>>>>> parent of 0afc2fd... Copied spa-github-pages
   "keywords": [
     "pod",
     "coin",
@@ -36,10 +22,6 @@
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/PodCoin/PodCoin.github.io/issues"
-<<<<<<< HEAD
->>>>>>> parent of 0afc2fd... Copied spa-github-pages
-=======
->>>>>>> parent of 0afc2fd... Copied spa-github-pages
   },
   "homepage": "https://github.com/PodCoin/PodCoin.github.io#readme",
   "dependencies": {
@@ -47,23 +29,4 @@
     "jquery": "^1.12.4",
     "popper.js": "^1.13.0"
   }
-=======
-  "keywords": [
-    "pod",
-    "coin",
-    "info",
-    "website",
-    "crypto",
-    "eth"
-  ],
-  "author": "PodCoin",
-  "license": "UNLICENSED",
-  "bugs": {
-    "url": "https://github.com/PodCoin/PodCoin.github.io/issues"
-  },
-  "homepage": "https://github.com/PodCoin/PodCoin.github.io#readme"
-<<<<<<< HEAD
->>>>>>> parent of 0aeab95... Added Bootstrap as a Dependency
-=======
->>>>>>> parent of 0aeab95... Added Bootstrap as a Dependency
 }
