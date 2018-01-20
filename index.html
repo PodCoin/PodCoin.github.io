@@ -1,48 +1,44 @@
 <html>
   <head>
     <title>PodCoin</title>
-	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	  
 	  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
-	  <script src="node_modules/p5/lib/p5.min.js"></script>
-	  <style>
-		  body{
-			  padding: 0;
-			  margin: 0;
-			  font-family: 'Comfortaa', 'Helvetica', sans-serif;
-		  }
-		  
-		  #defaultCanvas0{
-			  width: 100vw;
-			  height: 100vh;
-			  position: absolute;
-			  top: 0;
-			  left: 0;
-			  z-index: -1;
-			  filter: blur(4px);
-		  }
-		  
-		  .splash-container{
-			  width: 100vw;
-			  height: 100vh;
-			  position: relative;
-			  top: 0;
-			  left: 0;
-			  display: flex;
-			  align-items: center;
-			  justify-content: center;
-			  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,0+100 */
-background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
-background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
-background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-		  }
-		  
-		  .splash-wrapper{
-			  
-		  }
-	  </style>
+	  
+	  <script src="/node_modules/p5/lib/p5.min.js"></script>
+	  
+	  <link rel="stylesheet" type="text/css" href="/styles/main.css">
+	  
+	  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
   </head>
   <body>
+	 <div class="fixed-top navbar-wrapper">
+			 <nav class="navbar navbar-dark bg-primary">
+			  <a class="navbar-brand" href="#">
+				<img class="navbar-logo" src="/assets/images/podcoin.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+				<div class="navbar-title">PodCoin</div>
+			  </a>
+				 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+				<div class="collapse navbar-collapse">
+					<ul class="navbar-nav mr-auto">
+						 <li class="nav-item">
+							<a class="nav-link" href="#about">About</a>
+						  </li>
+						<li class="nav-item">
+							<a class="nav-link" href="#sign-up">Sign Up</a>
+						 </li>
+						<li class="nav-item">
+							<a class="nav-link" href="#legal">Legal</a>
+						 </li>
+					</ul>
+				 </div>
+			</nav>
+	</div>
 	 <div class="splash-container"><div class="splash-wrapper"><h1>PodCoin</h1></div></div>
 	<script>
 	var coins = [];
@@ -50,7 +46,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 		
 	function setup() {
 	  createCanvas(windowWidth, windowHeight, WEBGL);
-		img = loadImage("assets/images/podcoin.svg");
+		img = loadImage("/assets/images/podcoin.svg");
 	}
 		
 	function windowResized() {
