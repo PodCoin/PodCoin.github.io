@@ -12,6 +12,7 @@
   },
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
   "author": "Rafael Pedicini <code@rafrex.com>",
   "license": "MIT",
   "dependencies": {
@@ -21,6 +22,8 @@
     "react-interactive": "^0.8.1",
     "react-router-dom": "^4.2.2"
 =======
+=======
+>>>>>>> parent of 0afc2fd... Copied spa-github-pages
   "keywords": [
     "pod",
     "coin",
@@ -33,6 +36,9 @@
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/PodCoin/PodCoin.github.io/issues"
+<<<<<<< HEAD
+>>>>>>> parent of 0afc2fd... Copied spa-github-pages
+=======
 >>>>>>> parent of 0afc2fd... Copied spa-github-pages
   },
   "homepage": "https://github.com/PodCoin/PodCoin.github.io#readme",
