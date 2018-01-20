@@ -11,6 +11,7 @@
     "type": "git",
     "url": "git+https://github.com/rafrex/spa-github-pages.git"
   },
+<<<<<<< HEAD
   "author": "Rafael Pedicini <code@rafrex.com>",
   "license": "MIT",
   "dependencies": {
@@ -35,4 +36,20 @@
     "webpack": "^3.6.0",
     "webpack-dev-server": "^2.8.2"
   }
+=======
+  "keywords": [
+    "pod",
+    "coin",
+    "info",
+    "website",
+    "crypto",
+    "eth"
+  ],
+  "author": "PodCoin",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/PodCoin/PodCoin.github.io/issues"
+  },
+  "homepage": "https://github.com/PodCoin/PodCoin.github.io#readme"
+>>>>>>> parent of 0aeab95... Added Bootstrap as a Dependency
 }
