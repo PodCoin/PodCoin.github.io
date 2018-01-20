@@ -1,8 +1,121 @@
 <html>
   <head>
     <title>PodCoin</title>
+	  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+	  <script src="node_modules/p5/lib/p5.min.js"></script>
+	  <style>
+		  body{
+			  padding: 0;
+			  margin: 0;
+			  font-family: 'Comfortaa', 'Helvetica', sans-serif;
+		  }
+		  
+		  #defaultCanvas0{
+			  width: 100vw;
+			  height: 100vh;
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  z-index: -1;
+			  filter: blur(4px);
+		  }
+		  
+		  .splash-container{
+			  width: 100vw;
+			  height: 100vh;
+			  position: relative;
+			  top: 0;
+			  left: 0;
+			  display: flex;
+			  align-items: center;
+			  justify-content: center;
+			  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&1+0,0+100 */
+background: -moz-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%); /* FF3.6-15 */
+background: -webkit-radial-gradient(center, ellipse cover, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: radial-gradient(ellipse at center, rgba(255,255,255,1) 0%,rgba(255,255,255,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#00ffffff',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+		  }
+		  
+		  .splash-wrapper{
+			  
+		  }
+	  </style>
   </head>
   <body>
-    <h1>PodCoin<h1>
+	 <div class="splash-container"><div class="splash-wrapper"><h1>PodCoin</h1></div></div>
+	<script>
+	var coins = [];
+	const coinSize = 100;
+		
+	function setup() {
+	  createCanvas(windowWidth, windowHeight, WEBGL);
+		img = loadImage("assets/images/podcoin.svg");
+	}
+		
+	function windowResized() {
+	  resizeCanvas(windowWidth, windowHeight);
+	}
+
+	function draw() {
+	  background(255);
+		if (coins.length > 500){
+			coins.shift();
+		}
+		for(var i = 0; i<coins.length; i++){
+			
+			
+				push();
+
+				coins[i].y += 3;
+				translate(coins[i].x, coins[i].y, coins[i].z);
+
+				ambientMaterial(250);
+				fill(0, 0, 0, 0);
+				texture(img);
+
+				coins[i].r += 0.02;
+				rotateY(coins[i].r);
+
+				plane(coinSize, coinSize);
+				pop();
+
+			
+		}
+		
+		if(frameCount % 10 == 0){
+			spawnCoin();
+		}
+	}
+		
+	function spawnCoin(){
+		var coin = {
+			x: random(0,windowWidth)-windowWidth*0.5,
+			y: 0 - windowHeight*0.5 - coinSize*5,
+			z: random(-500,0),
+			r: random(0,36000)/100
+		};
+		
+		coins.push(coin);
+		insertionSort(coins);
+	}
+		
+	//http://codingmiles.com/sorting-algorithms-insertion-sort-using-javascript/
+		
+	function insertionSort(unsortedList) {
+			var len = unsortedList.length;
+			for (var i = 1; i < len; i++) {
+				var tmp = unsortedList[i]; //Copy of the current element. 
+				/*Check through the sorted part and compare with the number in tmp. If large, shift the number*/
+				for (var j = i - 1; j >= 0 && (unsortedList[j].z > tmp.z); j--) {
+					//Shift the number
+					unsortedList[j + 1] = unsortedList[j];
+				}
+				//Insert the copied number at the correct position
+				//in sorted part. 
+				unsortedList[j + 1] = tmp;
+			}
+		}
+	</script>
+
   </body>
 </html>
