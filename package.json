@@ -1,0 +1,27 @@
+{
+  "name": "podcoin.info",
+  "version": "1.0.0",
+  "description": "podcoin.info",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PodCoin/PodCoin.github.io.git"
+  },
+  "keywords": [
+    "pod",
+    "coin",
+    "info",
+    "website",
+    "crypto",
+    "eth"
+  ],
+  "author": "PodCoin",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/PodCoin/PodCoin.github.io/issues"
+  },
+  "homepage": "https://github.com/PodCoin/PodCoin.github.io#readme"
+}
