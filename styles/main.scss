@@ -1,6 +1,12 @@
 $primary: #0071ce;
 $secondary: #ff5100;
 $font-family-base:'Comfortaa', 'Helvetica', sans-serif;
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 900px,
+  xl: 900px
+);
 @import "scss/bootstrap/bootstrap.scss";
 $primary-dark:  mix($primary,$black);
 
@@ -18,7 +24,11 @@ body{
 	padding: 1rem 0;
 	border-radius: 2rem;
 	box-shadow: 0 0 1rem mix(mix($black, transparent), transparent);
+	align-items: normal;
+	padding: 0;
 	.navbar-brand{
+		height: 4rem;
+		vertical-align: top;
 		padding: 0;
 		padding-right: 1rem;
 		padding-left: 1rem;
@@ -58,19 +68,20 @@ body{
 				&:hover{
 			background-color: $primary-dark;
 					transition: background-color ease-in-out 0.2s;
+					color: $white;
 		}
 		}
 		
 	}
 	
 	.nav-link span{
-		display: inline-block;
 		position: relative;
 		bottom: -0.2rem;
+		color: $white;
 	}
 	
 	.navbar-toggler{
-		margin-right: -0.5rem;
+		    margin: 0.5rem;
 		width: 3rem;
     height: 3rem;
 		padding: 0.5rem;
@@ -83,13 +94,18 @@ body{
 @media (max-width: 768px){
 	.navbar-collapse{
 		width: 100%;
+		box-shadow: 0 0.5rem 1rem mix(mix($black, transparent), transparent);
 	}
 	.navbar-nav{
 		background-color: $white;
 	}
-	.nav-item{
+	.navbar .nav-item{
 		border: none;
 		width: 100%;
+
+		&:last-of-type{
+			border: none;
+		}
 		.nav-link{
 			padding: 0 1rem;
 			span{
@@ -97,8 +113,15 @@ body{
 				color: $black;
 
 			}
+		&:hover{
+			background-color: $secondary;
+			span{
+				color: $white;
+			}
+		}
 		}
 	}
+	
 	.navbar-wrapper{
 		padding: 0;
 	}
@@ -107,9 +130,7 @@ body{
 		border-radius: 0;
 	}
 	
-	.navbar .navbar-brand,.navbar .navbar-toggler[aria-expanded="true"]{
-		margin-top: -1rem;
-	}
+
 }
 
 #defaultCanvas0{
@@ -123,6 +144,7 @@ body{
 }
 
 .splash-container{
+	box-shadow: 0 0 5rem mix(mix(mix($black, transparent), transparent),transparent) inset;
 	width: 100vw;
 	height: 100vh;
 	position: relative;
@@ -139,5 +161,36 @@ body{
 }
 
 .splash-wrapper{
+	h1{
+		font-size: 4rem;
+	}
+}
+@media (max-width: 768px){
+	.splash-wrapper{
+		h1{
+			font-size: 1.8rem;
+		}
+	}
+	
+}
 
+
+.page-section{
+	min-height: 33vh;
+    display: flex;
+    align-items: center;
+	
+	.container .row{
+		padding-bottom: 1.5rem;
+	}
+	
+	.container .row:last-child{
+		padding-bottom: 0;
+	}
+}
+
+.faq-list{
+	padding: 0;
+	margin: 0;
+	list-style: none;
 }
