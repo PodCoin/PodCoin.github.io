@@ -16,30 +16,66 @@
   </head>
   <body>
 	 <div class="fixed-top navbar-wrapper">
-			 <nav class="navbar navbar-dark bg-primary">
-			  <a class="navbar-brand" href="#">
+			 <nav class="navbar navbar-dark bg-primary navbar-expand-md">
+			  <a class="navbar-brand" href="/">
 				<img class="navbar-logo" src="/assets/images/podcoin.svg" width="30" height="30" class="d-inline-block align-top" alt="">
 				<div class="navbar-title">PodCoin</div>
 			  </a>
-				 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+				 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="main-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-				<div class="collapse navbar-collapse">
+				<div class="collapse navbar-collapse" id="main-navbar-collapse">
 					<ul class="navbar-nav mr-auto">
 						 <li class="nav-item">
-							<a class="nav-link" href="#about">About</a>
+							 <a class="nav-link" href="#about"><span>About</span></a>
 						  </li>
 						<li class="nav-item">
-							<a class="nav-link" href="#sign-up">Sign Up</a>
+							<a class="nav-link" href="#sign-up"><span>Sign Up</span></a>
 						 </li>
 						<li class="nav-item">
-							<a class="nav-link" href="#legal">Legal</a>
+							<a class="nav-link" href="#legal"><span>Legal</span></a>
 						 </li>
 					</ul>
 				 </div>
 			</nav>
 	</div>
-	 <div class="splash-container"><div class="splash-wrapper"><h1>PodCoin</h1></div></div>
+	 <div class="splash-container"><div class="splash-wrapper"><h1></h1></div></div>
+	 <div class="w-100 py-4 bg-light" id="about">
+		 <div class="container">
+			 <div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<h3>About</h3>
+					<p>Omnis architecto eligendi quis vitae. Earum ad temporibus suscipit dignissimos blanditiis unde et molestiae. Sequi reprehenderit quas sint omnis.<br/><br/>Ullam magni consequatur corporis saepe sapiente odit doloribus minus. Reprehenderit quisquam quis nam dignissimos. Laborum tempora et nihil ut.<br/><br/>Vel exercitationem omnis tenetur tempore deserunt iste est. Rerum similique quis vitae exercitationem in et et. Officiis natus fuga eveniet. Aut ipsa porro sit assumenda qui. Autem perferendis dolor labore dolorem dolores.</p>
+				</div>
+			 </div> 
+		 </div>
+	  </div>
+	 <div class="w-100 py-4 bg-secondary text-white" id="sign-up">
+		 <div class="container">
+			 <div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<h3>Sign Up</h3>
+					<small>Get email updates about with PodCoin news.</small>
+					<div class="input-group mb-3 pt-2">
+					  <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
+					  <div class="input-group-append">
+						<button class="btn btn-primary" type="button">Submit</button>
+					  </div>
+					</div>
+				</div>
+			 </div> 
+		 </div>
+	  </div>
+	  <div class="w-100 py-4 bg-light" id="legal">
+		 <div class="container">
+			 <div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<h3>Legal</h3>
+					<p>Omnis architecto eligendi quis vitae. Earum ad temporibus suscipit dignissimos blanditiis unde et molestiae. Sequi reprehenderit quas sint omnis.<br/><br/>Ullam magni consequatur corporis saepe sapiente odit doloribus minus. Reprehenderit quisquam quis nam dignissimos. Laborum tempora et nihil ut.<br/><br/>Vel exercitationem omnis tenetur tempore deserunt iste est. Rerum similique quis vitae exercitationem in et et. Officiis natus fuga eveniet. Aut ipsa porro sit assumenda qui. Autem perferendis dolor labore dolorem dolores.</p>
+				</div>
+			 </div> 
+		 </div>
+	  </div>
 	<script>
 	var coins = [];
 	const coinSize = 100;

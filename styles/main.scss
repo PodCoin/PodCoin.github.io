@@ -1,6 +1,8 @@
 $primary: #0071ce;
+$secondary: #ff5100;
 $font-family-base:'Comfortaa', 'Helvetica', sans-serif;
 @import "scss/bootstrap/bootstrap.scss";
+$primary-dark:  mix($primary,$black);
 
 body{
 	padding: 0;
@@ -13,9 +15,21 @@ body{
 	height: 4rem;
 	vertical-align: middle;
 	line-height: 4rem;
-	padding: 1rem 1rem;
+	padding: 1rem 0;
 	border-radius: 2rem;
+	box-shadow: 0 0 1rem mix(mix($black, transparent), transparent);
 	.navbar-brand{
+		padding: 0;
+		padding-right: 1rem;
+		padding-left: 1rem;
+		margin: 0;
+		border-bottom-left-radius: 2rem;
+		border-top-left-radius: 2rem;
+		&:hover{
+			background-color: $primary-dark;
+			transition: background-color ease-in-out 0.2s;
+		}
+		
 		.navbar-logo{
 			background-color: $white;
 			padding: 2px;
@@ -29,12 +43,72 @@ body{
 		}	
 	}
 	
+	
+	.nav-item{
+		border-left: 1px solid $primary-dark;
+		
+		&:last-of-type{
+			border-right: 1px solid $primary-dark;
+		}
+		
+		.nav-link{
+			padding-top: 0;
+			padding-bottom: 0;	
+			
+				&:hover{
+			background-color: $primary-dark;
+					transition: background-color ease-in-out 0.2s;
+		}
+		}
+		
+	}
+	
+	.nav-link span{
+		display: inline-block;
+		position: relative;
+		bottom: -0.2rem;
+	}
+	
 	.navbar-toggler{
 		margin-right: -0.5rem;
 		width: 3rem;
     height: 3rem;
 		padding: 0.5rem;
 		border-radius: 50%;
+	}
+}
+
+
+
+@media (max-width: 768px){
+	.navbar-collapse{
+		width: 100%;
+	}
+	.navbar-nav{
+		background-color: $white;
+	}
+	.nav-item{
+		border: none;
+		width: 100%;
+		.nav-link{
+			padding: 0 1rem;
+			span{
+
+				color: $black;
+
+			}
+		}
+	}
+	.navbar-wrapper{
+		padding: 0;
+	}
+	
+	.navbar{
+		border-radius: 0;
+	}
+	
+	.navbar .navbar-brand,.navbar .navbar-toggler[aria-expanded="true"]{
+		margin-top: -1rem;
 	}
 }
 
