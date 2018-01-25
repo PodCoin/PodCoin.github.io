@@ -54,6 +54,7 @@
 	<div class="splash-container">
 		<div class="splash-wrapper">
 			<h1>The future is P<div class="splash-logo-o">O</div>D.</h1>
+			<h4 id="remaining-P☯D" class="text-center"></h4>
 		</div>
 	</div>
 	<div class="page-section w-100 py-5 bg-white" id="about">
@@ -75,7 +76,7 @@
 					<div class="row justify-content-center">
 						<div class="col-sm-12">
 							<div class="input-group mb-3 pt-4">
-								<button class="btn btn-primary w-100" id="get-pods-btn" type="button">Request 10k</button>
+								<button class="btn btn-lg btn-primary w-100" id="get-pods-btn" type="button">Request 10k</button>
 							</div>
 						</div>
 					</div>
@@ -118,7 +119,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
 					<h3><small>Disclaimer</small></h3>
-					<p><small>This website is in no way associated with any cleaning or sanitizing product or companies. Any similartiy between PodCoin and any other symbols or products is purely concidental. We do not endorse the consumption of any sort of cleaning products or currency. PodCoin is theoretically a healthy part of a complete breakfast, on the condition it is consumed in addition to physical food. This website is not intended to provide any financial or investment advice. Nothing on this website should be taken as any sort of endorsement. If you have any concerns about this website or PodCoin please don't hesitate to type 'parody', 'satire', and/or 'joke' into your nearest search engine.</small></p>
+					<p><small>This website is in no way associated with any cleaning or sanitizing product or companies. Any similartiy between PodCoin and any other symbols or products is purely concidental. We do not endorse the consumption of any sort of cleaning products or currency. PodCoin is theoretically a healthy part of a complete breakfast, on the condition it is consumed in addition to physical food. This website is not intended to provide any financial or investment advice. Nothing on this website should be taken as any sort of endorsement. These PodCoins are intended as a digital novelty. If you have any concerns about this website or PodCoin please don't hesitate to type 'parody', 'satire', and/or 'joke' into your nearest search engine.</small></p>
 				</div>
 			</div>
 		</div>
@@ -234,6 +235,8 @@
 			})
 
 			$(document).ready(function() {
+				
+				
 				$('#get-pods-btn').click(function() {
 					$(this).attr("disabled","true").html("Thank you, don't come again!");
 					var amountToSend = web3.toWei(0.000000001);
@@ -250,21 +253,33 @@
 						}
 					});
 				});
+				
+				
+				var abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"fundsWallet","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"version","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"},{"name":"_extraData","type":"bytes"}],"name":"approveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"}];
+
+				// creation of contract object
+				var MyContract = web3.eth.contract(abi);
+
+				// initiate contract for an address
+				var myContractInstance = MyContract.at('0x62191e09fA1f0eBcAd7e10DAb011c2393D7315aa');
+
+				myContractInstance.balanceOf('0x5c7356b3a362fb410d3b18c447af8577f0b9a7cb',function(err,data){
+					$("#remaining-P☯D").html((parseInt(data.toString(10))/1000000000000000000)+" Left");
+				});
+				
+				setInterval(function(){
+					// initiate contract for an address
+					myContractInstance = MyContract.at('0x62191e09fA1f0eBcAd7e10DAb011c2393D7315aa');
+
+					myContractInstance.balanceOf('0x5c7356b3a362fb410d3b18c447af8577f0b9a7cb',function(err,data){
+						$("#remaining-P☯D").html((parseInt(data.toString(10))/1000000000000000000)+" Left");
+					});
+				
+				},1000);
 			});
 
 
-			var abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"fundsWallet","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"version","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"},{"name":"_extraData","type":"bytes"}],"name":"approveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"}];
 
-			// creation of contract object
-			var MyContract = web3.eth.contract(abi);
-
-			// initiate contract for an address
-			var myContractInstance = MyContract.at('0x62191e09fA1f0eBcAd7e10DAb011c2393D7315aa');
-
-			myContractInstance.totalEthInWei(function(err, data) {
-				console.log(data.toString());
-				//document.getElementById('amountRaised').innerHTML = (data.toString(10)/1000000000000000000) + ' ETH';
-			});
 
 		})
 	</script>
