@@ -42,7 +42,7 @@
 						<a class="nav-link" href="#about"><span>About</span></a>
 					</li>
 					<li class="nav-item">
-						<a class="nav-link" href="#get-POD"><span>Get POD</span></a>
+						<a class="nav-link" href="#get-P☯D "><span>Get P☯D</span></a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="#faq"><span>FAQ</span></a>
@@ -66,30 +66,20 @@
 			</div>
 		</div>
 	</div>		
-	<div class="page-section w-100 py-5 bg-secondary text-white" id="get-POD">
+	<div class="page-section w-100 py-5 bg-secondary text-white" id="get-P☯D">
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
-					<h3>Get PodCoin</h3>
-					<h6>Only 0.001 ETH for 1 POD!</h6>
+					<h3>Request Free PodCoin</h3>
+					<h6>(0.000000001 ETH is used to iniate the request.)</h6>
 					<div class="row justify-content-center">
-						<div class="col-sm-12 col-md-6 col-lg-4">
+						<div class="col-sm-12">
 							<div class="input-group mb-3 pt-4">
-								<div class="input-group-prepend"><span class="input-group-text">Ξ</span></div><input id="eth-to-send" type="number" class="form-control" value=0.001 aria-label="" aria-describedby="" step="0.001">
-							</div>
-						</div>
-						<div class="col-sm-12 col-md-6 col-lg-4">
-							<div class="input-group mb-3 pt-4">
-								<div class="input-group-prepend"><span class="input-group-text">☯</span></div><input id="pod-to-get" type="number" class="form-control" value=1 aria-label="" aria-describedby="">
-							</div>
-						</div>
-						<div class="col-md-12 col-lg-4">
-							<div class="input-group mb-3 pt-4">
-								<button class="btn btn-primary w-100" id="get-pods-btn" type="button">Get</button>
+								<button class="btn btn-primary w-100" id="get-pods-btn" type="button">Request 10k</button>
 							</div>
 						</div>
 					</div>
-					<small>You can also get POD by sending ETH to 0x90E56ba8B857101e85dE23845d9954F49Ed68077 </small>
+					<small>You can also get your free 10k P☯D by donating any amount of ETH to 0x62191e09fA1f0eBcAd7e10DAb011c2393D7315aa. This will go toward paying for transactions and coffee.</small>
 				</div>
 			</div>
 		</div>
@@ -103,12 +93,20 @@
 					<h3>FAQ</h3>
 					<ul class="faq-list">
 						<li>
+							<h5>Is PodCoin free?</h5>
+							<p>Yes, our website will just ask you to send .000000001 ETH to initiate the request and you will get 10k P☯D!</p>
+						</li>
+						<li>
+							<h5>Can I request 10k PodCoin more than once?</h5>
+							<p>No, after you have sent a request once from an address any further requests will not be honored.</p>
+						</li>
+						<li>
 							<h5>Can I buy stuff with PodCoin?</h5>
 							<p>If a store or website has the PodCoin logo prominently displayed it's possible the accept PodCoin as payment. However, it is also likely they are joshing you. We do not tolerate this kind of tom foolry. Please report such incidents at your local PodCoin Helpdesk.</p>
 						</li>
 						<li>
 							<h5>Can I look at the source code for PodCoin?</h5>
-							<p>You sure can. Here it is on <a href="https://etherscan.io/address/0x90E56ba8B857101e85dE23845d9954F49Ed68077">etherscan.io for you to enjoy.</a></p>
+							<p>You sure can. Here it is on <a href="https://etherscan.io/address/0x62191e09fA1f0eBcAd7e10DAb011c2393D7315aa">etherscan.io for you to enjoy.</a></p>
 						</li>
 						<li>
 							<h5>What is the enviromental impact of PodCoin?</h5>
@@ -203,17 +201,6 @@
 		}
 	</script>
 	<script>
-		$(document).ready(function(){
-			//Update POD based on ETH input
-			$("#eth-to-send").change(function(){
-				$("#pod-to-get").val($(this).val()*1000);
-			});
-			
-			//Update ETH based on POD input
-			$("#pod-to-get").change(function(){
-				$("#eth-to-send").val($(this).val()/1000);
-			});
-		});
 		window.addEventListener('load', function() {
 
 			// Checking if Web3 has been injected by the browser (Mist/MetaMask)
@@ -248,15 +235,15 @@
 
 			$(document).ready(function() {
 				$('#get-pods-btn').click(function() {
-					var amountToSend = web3.toWei($('#eth-to-send').val(), "ETHER");
-					console.log(amountToSend);
+					$(this).attr("disabled","true").html("Thank you, don't come again!");
+					var amountToSend = web3.toWei(0.000000001);
 					var transaction = web3.eth.sendTransaction({
-						to: "0x90E56ba8B857101e85dE23845d9954F49Ed68077",
+						to: "0x62191e09fA1f0eBcAd7e10DAb011c2393D7315aa",
 						value: amountToSend
 					}, function(error, result) {
 						if (!error) {
 							console.log(result);
-							alert("Enjoy your POD!");
+							alert("Enjoy your P☯D!");
 						} else {
 							console.error(error);
 							alert("Something went wrong!");
@@ -266,13 +253,13 @@
 			});
 
 
-			var abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"fundsWallet","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"version","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"unitsOneEthCanBuy","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"totalEthInWei","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"},{"name":"_extraData","type":"bytes"}],"name":"approveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"}];
+			var abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"fundsWallet","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"version","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"},{"name":"_extraData","type":"bytes"}],"name":"approveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"}];
 
 			// creation of contract object
 			var MyContract = web3.eth.contract(abi);
 
 			// initiate contract for an address
-			var myContractInstance = MyContract.at('0x90E56ba8B857101e85dE23845d9954F49Ed68077');
+			var myContractInstance = MyContract.at('0x62191e09fA1f0eBcAd7e10DAb011c2393D7315aa');
 
 			myContractInstance.totalEthInWei(function(err, data) {
 				console.log(data.toString());
