@@ -1,114 +1,154 @@
 <html>
-  <head>
-    <title>PodCoin</title>
-	  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	  
-	  <link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
-	  
-	  <script src="/node_modules/p5/lib/p5.min.js"></script>
-	  
-	  <link rel="stylesheet" type="text/css" href="/styles/main.css">
-	  
-	  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-  </head>
-  <body>
-	 <div class="fixed-top navbar-wrapper">
-			 <nav class="navbar navbar-dark bg-primary navbar-expand-md">
-			  <a class="navbar-brand" href="/">
+<head>
+	<title>PodCoin</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-touch-icon.png?v=5AeORJnQMQ">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png?v=5AeORJnQMQ">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png?v=5AeORJnQMQ">
+	<link rel="manifest" href="/assets/favicon/manifest.json?v=5AeORJnQMQ">
+	<link rel="mask-icon" href="/assets/favicon/safari-pinned-tab.svg?v=5AeORJnQMQ" color="#0071ce">
+	<link rel="shortcut icon" href="/assets/favicon/favicon.ico?v=5AeORJnQMQ">
+	<meta name="msapplication-config" content="/assets/favicon/browserconfig.xml?v=5AeORJnQMQ">
+	<meta name="theme-color" content="#0071ce">
+
+	<link href="https://fonts.googleapis.com/css?family=Comfortaa:400,700" rel="stylesheet">
+
+	<script src="/node_modules/p5/lib/p5.min.js"></script>
+	<script src="/node_modules/web3/dist/web3.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="/styles/main.css">
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+	<div class="fixed-top navbar-wrapper">
+		<nav class="navbar navbar-dark bg-primary navbar-expand-md">
+			<a class="navbar-brand" href="/">
 				<img class="navbar-logo" src="/assets/images/podcoin.svg" width="30" height="30" class="d-inline-block align-top" alt="">
 				<div class="navbar-title">PodCoin</div>
 			  </a>
-				 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="main-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar-collapse" aria-controls="main-navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-				<div class="collapse navbar-collapse" id="main-navbar-collapse">
-					<ul class="navbar-nav mr-auto">
-						 <li class="nav-item">
-							 <a class="nav-link" href="#about"><span>About</span></a>
-						  </li>
-						<li class="nav-item">
-							<a class="nav-link" href="#sign-up"><span>Sign Up</span></a>
-						 </li>
-						<li class="nav-item">
-							<a class="nav-link" href="#faq"><span>FAQ</span></a>
-						 </li>
-						<li class="nav-item">
-							<a class="nav-link" href="#disclaimer"><span>Disclaimer</span></a>
-						 </li>
-					</ul>
-				 </div>
-			</nav>
+			<div class="collapse navbar-collapse" id="main-navbar-collapse">
+				<ul class="navbar-nav mr-auto">
+					<li class="nav-item">
+						<a class="nav-link" href="#about"><span>About</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#get-POD"><span>Get POD</span></a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#faq"><span>FAQ</span></a>
+					</li>
+				</ul>
+			</div>
+		</nav>
 	</div>
-	 <div class="splash-container"><div class="splash-wrapper"><h1>The future is <a href="#">PODS</a>.</h1></div></div>
-	 <div class="page-section w-100 py-4 bg-white">
-		 <div class="container">
-			 <div class="row justify-content-center" id="about">
+	<div class="splash-container">
+		<div class="splash-wrapper">
+			<h1>The future is P<div class="splash-logo-o">O</div>D.</h1>
+		</div>
+	</div>
+	<div class="page-section w-100 py-5 bg-white" id="about">
+		<div class="container">
+			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
 					<h3>About</h3>
 					<p>You can't eat pods or coins but you can eat PodCoin: The first 100% theoretically edible crypto token. With zero sugar, zero fat, and zero meaningful contributions to society, this token clocks in at a whopping no calories! Pick your own forbidden fruit straight off the blockchain. YUM! YUM! YUM!</p>
 				</div>
-			</div> 
-			 <div class="row justify-content-center" id="faq">
-				 <div class="col-md-12 col-lg-10">
+			</div>
+		</div>
+	</div>		
+	<div class="page-section w-100 py-5 bg-secondary text-white" id="get-POD">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<h3>Get PodCoin</h3>
+					<h6>Only 0.001 ETH for 1 POD!</h6>
+					<div class="row justify-content-center">
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="input-group mb-3 pt-4">
+								<div class="input-group-prepend"><span class="input-group-text">Ξ</span></div><input id="eth-to-send" type="number" class="form-control" value=0.001 aria-label="" aria-describedby="" step="0.001">
+							</div>
+						</div>
+						<div class="col-sm-12 col-md-6 col-lg-4">
+							<div class="input-group mb-3 pt-4">
+								<div class="input-group-prepend"><span class="input-group-text">☯</span></div><input id="pod-to-get" type="number" class="form-control" value=1 aria-label="" aria-describedby="">
+							</div>
+						</div>
+						<div class="col-md-12 col-lg-4">
+							<div class="input-group mb-3 pt-4">
+								<button class="btn btn-primary w-100" id="get-pods-btn" type="button">Get</button>
+							</div>
+						</div>
+					</div>
+					<small>You can also get POD by sending ETH to 0x90E56ba8B857101e85dE23845d9954F49Ed68077 </small>
+				</div>
+			</div>
+		</div>
+	</div>
+		
+		
+	<div class="page-section w-100 py-5 bg-white" id="faq">
+		<div class="container">
+			<div class="row justify-content-center" >
+				<div class="col-md-12 col-lg-10">
 					<h3>FAQ</h3>
 					<ul class="faq-list">
-						<li><h5>Can I buy stuff with PodCoin?</h5><p>If a store or website has the PodCoin logo prominently displayed it's possible the accept PodCoin as payment. However, it is also likely they are fucking with you. We do not tolerate this kind of tom foolry. Please report such incidents at your local PodCoin Helpdesk.</p></li>
+						<li>
+							<h5>Can I buy stuff with PodCoin?</h5>
+							<p>If a store or website has the PodCoin logo prominently displayed it's possible the accept PodCoin as payment. However, it is also likely they are joshing you. We do not tolerate this kind of tom foolry. Please report such incidents at your local PodCoin Helpdesk.</p>
+						</li>
+						<li>
+							<h5>Can I look at the source code for PodCoin?</h5>
+							<p>You sure can. Here it is on <a href="https://etherscan.io/address/0x90E56ba8B857101e85dE23845d9954F49Ed68077">etherscan.io for you to enjoy.</a></p>
+						</li>
+						<li>
+							<h5>What is the enviromental impact of PodCoin?</h5>
+							<p>Probably extremely negative but we don't like to think about it too much.</a></p>
+						</li>
 					</ul>
 				</div>
-			 </div>
-		 </div>
-	  </div>
-
-	 <div class="page-section w-100 py-4 bg-secondary text-white" id="sign-up">
-		 <div class="container">
-			 <div class="row justify-content-center">
+			</div>
+			<div class="row justify-content-center">
 				<div class="col-md-12 col-lg-10">
-					<h3>Sign Up</h3>
-					<small>Get email updates about with PodCoin news.</small>
-					<div class="input-group mb-3 pt-2">
-					  <input type="email" class="form-control" placeholder="Email" aria-label="Email" aria-describedby="basic-addon2">
-					  <div class="input-group-append">
-						<button class="btn btn-primary" type="button">Submit</button>
-					  </div>
-					</div>
+					<h3><small>Disclaimer</small></h3>
+					<p><small>This website is in no way associated with any cleaning or sanitizing product or companies. Any similartiy between PodCoin and any other symbols or products is purely concidental. We do not endorse the consumption of any sort of cleaning products or currency. PodCoin is theoretically a healthy part of a complete breakfast, on the condition it is consumed in addition to physical food. This website is not intended to provide any financial or investment advice. Nothing on this website should be taken as any sort of endorsement. If you have any concerns about this website or PodCoin please don't hesitate to type 'parody', 'satire', and/or 'joke' into your nearest search engine.</small></p>
 				</div>
-			 </div> 
-		 </div>
-	  </div>
-	  <div class="page-section w-100 py-4 bg-white" id="disclaimer">
-		 <div class="container">
-			 <div class="row justify-content-center">
-				<div class="col-md-12 col-lg-10">
-					<h3>Disclaimer</h3>
-					<p>This website is in no way associated with any cleaning or sanitizing product or companies. Any similartiy between PodCoin and any other symbols or products is purely concidental. We do not endorse the consumption of any sort of cleaning products or currency. PodCoin is theoretically a healthy part of a complete breakfast, on the condition it is consumed in addition to physical food. This website is not intended to provide any financial or investment advice. If you have any concerns about this website or PodCoin please don't hesitate to type 'parody', 'satire', and/or 'joke' into your nearest search engine.</p>
-				</div>
-			 </div> 
-		 </div>
-	  </div>
+			</div>
+		</div>
+	</div>
+	<div class="footer py-3 bg-secondary text-white text-center" >
+		<small><small>Why are you reading this tiny text, human? <a href="//ivoilic.com" class="text-white">Website designed and programmed by Ivo Ilić.</a></small></small>
+	</div>
 	<script>
-	var coins = [];
-	const coinSize = 100;
-		
-	function setup() {
-	  createCanvas(windowWidth, windowHeight, WEBGL);
-		img = loadImage("/assets/images/podcoin.svg");
-	}
-		
-	function windowResized() {
-	  resizeCanvas(windowWidth, windowHeight);
-	}
+		var coins = [];
+		const coinSize = 100;
 
-	function draw() {
-	  background(255);
-		if (coins.length > 500){
-			coins.shift();
+		function setup() {
+			createCanvas(windowWidth, windowHeight, WEBGL);
+			img = loadImage("/assets/images/podcoin.svg");
 		}
-		for(var i = 0; i<coins.length; i++){
-			
-			
+
+		function windowResized() {
+			resizeCanvas(windowWidth, windowHeight);
+		}
+
+		function draw() {
+			background(255);
+			if (coins.length > 500) {
+				coins.shift();
+			}
+			for (var i = 0; i < coins.length; i++) {
+
+
 				push();
 
 				coins[i].y += 3;
@@ -124,29 +164,29 @@
 				plane(coinSize, coinSize);
 				pop();
 
-			
+
+			}
+
+			if (frameCount % 10 == 0) {
+				spawnCoin();
+			}
 		}
-		
-		if(frameCount % 10 == 0){
-			spawnCoin();
+
+		function spawnCoin() {
+			var coin = {
+				x: random(0, windowWidth) - windowWidth * 0.5,
+				y: 0 - windowHeight * 0.5 - coinSize * 5,
+				z: random(-500, 0),
+				r: random(0, 36000) / 100
+			};
+
+			coins.push(coin);
+			insertionSort(coins);
 		}
-	}
-		
-	function spawnCoin(){
-		var coin = {
-			x: random(0,windowWidth)-windowWidth*0.5,
-			y: 0 - windowHeight*0.5 - coinSize*5,
-			z: random(-500,0),
-			r: random(0,36000)/100
-		};
-		
-		coins.push(coin);
-		insertionSort(coins);
-	}
-		
-	//http://codingmiles.com/sorting-algorithms-insertion-sort-using-javascript/
-		
-	function insertionSort(unsortedList) {
+
+		//http://codingmiles.com/sorting-algorithms-insertion-sort-using-javascript/
+
+		function insertionSort(unsortedList) {
 			var len = unsortedList.length;
 			for (var i = 1; i < len; i++) {
 				var tmp = unsortedList[i]; //Copy of the current element. 
@@ -161,6 +201,85 @@
 			}
 		}
 	</script>
+	<script>
+		$(document).ready(function(){
+			//Update POD based on ETH input
+			$("#eth-to-send").change(function(){
+				$("#pod-to-get").val($(this).val()*1000);
+			});
+			
+			//Update ETH based on POD input
+			$("#pod-to-get").change(function(){
+				$("#eth-to-send").val($(this).val()/1000);
+			});
+		});
+		window.addEventListener('load', function() {
 
-  </body>
+			// Checking if Web3 has been injected by the browser (Mist/MetaMask)
+			if (typeof web3 !== 'undefined') {
+				// Use Mist/MetaMask's provider
+				web3js = new Web3(web3.currentProvider);
+			} else {
+				console.log('No web3? You should consider trying MetaMask!')
+			}
+
+			web3.version.getNetwork((err, netId) => {
+				switch (netId) {
+					case "1":
+						console.log('This is mainnet')
+						break
+					case "2":
+						console.log('This is the deprecated Morden test network.')
+						break
+					case "3":
+						console.log('This is the ropsten test network.')
+						break
+					case "4":
+						console.log('This is the Rinkeby test network.')
+						break
+					case "42":
+						console.log('This is the Kovan test network.')
+						break
+					default:
+						console.log('This is an unknown network.')
+				}
+			})
+
+			$(document).ready(function() {
+				$('#get-pods-btn').click(function() {
+					var amountToSend = web3.toWei($('#eth-to-send').val(), "ETHER");
+					console.log(amountToSend);
+					var transaction = web3.eth.sendTransaction({
+						to: "0x90E56ba8B857101e85dE23845d9954F49Ed68077",
+						value: amountToSend
+					}, function(error, result) {
+						if (!error) {
+							console.log(result);
+							alert("Enjoy your POD!");
+						} else {
+							console.error(error);
+							alert("Something went wrong!");
+						}
+					});
+				});
+			});
+
+
+			var abi = [{"constant":true,"inputs":[],"name":"name","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"}],"name":"approve","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"totalSupply","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"fundsWallet","outputs":[{"name":"","type":"address"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_from","type":"address"},{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transferFrom","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[],"name":"decimals","outputs":[{"name":"","type":"uint8"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"version","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"unitsOneEthCanBuy","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"}],"name":"balanceOf","outputs":[{"name":"balance","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"totalEthInWei","outputs":[{"name":"","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":true,"inputs":[],"name":"symbol","outputs":[{"name":"","type":"string"}],"payable":false,"stateMutability":"view","type":"function"},{"constant":false,"inputs":[{"name":"_to","type":"address"},{"name":"_value","type":"uint256"}],"name":"transfer","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":false,"inputs":[{"name":"_spender","type":"address"},{"name":"_value","type":"uint256"},{"name":"_extraData","type":"bytes"}],"name":"approveAndCall","outputs":[{"name":"success","type":"bool"}],"payable":false,"stateMutability":"nonpayable","type":"function"},{"constant":true,"inputs":[{"name":"_owner","type":"address"},{"name":"_spender","type":"address"}],"name":"allowance","outputs":[{"name":"remaining","type":"uint256"}],"payable":false,"stateMutability":"view","type":"function"},{"inputs":[],"payable":false,"stateMutability":"nonpayable","type":"constructor"},{"payable":true,"stateMutability":"payable","type":"fallback"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_from","type":"address"},{"indexed":true,"name":"_to","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Transfer","type":"event"},{"anonymous":false,"inputs":[{"indexed":true,"name":"_owner","type":"address"},{"indexed":true,"name":"_spender","type":"address"},{"indexed":false,"name":"_value","type":"uint256"}],"name":"Approval","type":"event"}];
+
+			// creation of contract object
+			var MyContract = web3.eth.contract(abi);
+
+			// initiate contract for an address
+			var myContractInstance = MyContract.at('0x90E56ba8B857101e85dE23845d9954F49Ed68077');
+
+			myContractInstance.totalEthInWei(function(err, data) {
+				console.log(data.toString());
+				//document.getElementById('amountRaised').innerHTML = (data.toString(10)/1000000000000000000) + ' ETH';
+			});
+
+		})
+	</script>
+</body>
+
 </html>
